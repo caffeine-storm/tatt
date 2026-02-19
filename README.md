@@ -30,8 +30,9 @@ Testing is important.
             - log(mean-runs-before-failure) ?
             - more recent results have a larger impact
 
-2. In Haskell parlance, `tatt :: Test T -> Given G -> When W -> Then C`
-    So, if `Then C` is sad, report the first sadness amongst T then A then B then C
+2. In Haskell parlance, `tatt :: Test T -> Given G -> When W -> Then C`\
+        So, if `Then C` is sad, report the first sadness amongst `T` then `A` then
+        `B` then `C`
     - parse error/failure messages to present actionable/root-cause
     - include/provide full logs
         - compare failing vs. non failing
