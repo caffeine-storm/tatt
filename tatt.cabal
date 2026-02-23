@@ -56,8 +56,8 @@ extra-doc-files:    CHANGELOG.md
 -- extra-source-files:
 
 source-repository head
-    type:           git
-    location:       https://github.com/caffeine-storm/tatt.git
+    type:     git
+    location: https://github.com/caffeine-storm/tatt.git
 
 common warnings
     ghc-options: -Wall
@@ -76,9 +76,10 @@ executable tatt
     -- other-extensions:
 
     -- Other library packages from which modules are imported.
-    build-depends:    base ^>= 4.18.3.0,
-                      directory ^>= 1.3.8,
-                      process ^>= 1.6.19,
+    build-depends:
+        base ^>= 4.18.3.0,
+        directory ^>= 1.3.8,
+        process ^>= 1.6.19,
 
     -- Directories containing source files.
     hs-source-dirs:   app
@@ -86,3 +87,16 @@ executable tatt
     -- Base language which the package is written in.
     default-language: Haskell2010
 
+test-suite test
+    import:           warnings
+    type:             exitcode-stdio-1.0
+    main-is:          Spec.hs
+    other-modules:
+        MainSpec,
+    build-tool-depends:
+        hspec-discover:hspec-discover,
+    build-depends:
+        base ^>= 4.18.3.0,
+        hspec ^>= 2.11.16,
+    hs-source-dirs:   test
+    default-language: Haskell2010
