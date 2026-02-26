@@ -92,6 +92,8 @@ test-suite test
     type:             exitcode-stdio-1.0
     main-is:          Spec.hs
     other-modules:
+        Graphviz.IntegrationTestSpec,
+        Graphviz.Repo,
         MainSpec,
     build-tool-depends:
         hspec-discover:hspec-discover,

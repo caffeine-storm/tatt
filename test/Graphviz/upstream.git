@@ -1,0 +1,4 @@
+Git {
+	url = "https://gitlab.com/graphviz/graphviz.git",
+	hash = "8160ee4f81a276a881318f64021d698204fbfb81"
+}
