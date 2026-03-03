@@ -5,12 +5,12 @@ import qualified Data.Maybe
 
 import qualified Prefs
 
-data TestStrategy = CabalTest | MakeTest | MakeCheck
+data TestStrategy = CabalTest | MakeTest (Maybe String)
   deriving(Show, Eq)
 
 dirEntToTestStrategy :: String -> Maybe TestStrategy
--- TODO: need to invoke make to find out if 'test' or 'check' are targets
-dirEntToTestStrategy "Makefile" = Just MakeTest
+-- need to invoke make to find out if 'test' or 'check' are targets
+dirEntToTestStrategy "Makefile" = Just $ MakeTest Nothing
 dirEntToTestStrategy ent | ".cabal" `Data.List.isSuffixOf` ent = Just CabalTest
                          | otherwise = Nothing
 
@@ -20,7 +20,7 @@ betterStrat Prefs.StubPrefs lhs rhs =
   case (lhs, rhs) of
     (CabalTest,_) -> CabalTest
     (_,CabalTest) -> CabalTest
-    _ -> MakeTest
+    _ -> lhs
 
 bestStrat :: Prefs.Prefs -> [TestStrategy] -> TestStrategy
 bestStrat _ [] = error "can't pick best from no choices"
