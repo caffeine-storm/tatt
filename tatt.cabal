@@ -90,7 +90,7 @@ executable tatt
     -- Base language which the package is written in.
     default-language: Haskell2010
 
-test-suite test
+test-suite test-tatt
     import:           warnings
     type:             exitcode-stdio-1.0
     main-is:          Spec.hs
